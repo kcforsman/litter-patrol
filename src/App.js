@@ -14,6 +14,10 @@ class App extends Component {
     console.log(this.state.bins);
   }
 
+// startGame()
+// this function sets an interval that resets
+// the state attr bins every 1.5 secs calling
+// the getBinsState() with each interval
   startGame() {
     setInterval(() => {
       this.setState( {
@@ -22,6 +26,12 @@ class App extends Component {
     }, 1500);
   }
 
+// getBinsState()
+// method creates and fills an array of 9 elements of Javascript Objects
+// with a key of isTrashVisible and true or false values
+// based on a Math JavaScript method that generates 1 or 0
+// randomly to determine the value
+// then the method returns the filled bins array
   getBinsState() {
     let bins = [];
     for (let i = 0; i < 9; i++){
