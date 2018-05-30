@@ -41,8 +41,12 @@ class App extends Component {
     return bins;
   }
 
-  onTrashClicked = () => {
-    // Fill this in!
+  onTrashClicked = (binIndex) => {
+    if (this.state.bins[binIndex].isTrashVisible === true) {
+      this.setState( {
+        points: this.state.points + 1
+      });
+    }
   }
 
   render() {
@@ -50,7 +54,9 @@ class App extends Component {
       return (
         <Trash
         key={`trash-${index}`}
-        isTrashVisible={bin.isTrashVisible}/>
+        index={index}
+        isTrashVisible={bin.isTrashVisible}
+        onTrashClicked={this.onTrashClicked}/>
       );
     });
 
